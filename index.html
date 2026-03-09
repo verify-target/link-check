@@ -1,0 +1,402 @@
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Check on Amazon</title>
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Z9XWBVX34H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Z9XWBVX34H');
+
+    function getRedditSubreddit() {
+      const ref = document.referrer || "";
+      const match = ref.match(/https?:\/\/(www\.|old\.)?reddit\.com\/r\/([^\/?#]+)/i);
+      return match ? match[2].toLowerCase() : null;
+    }
+
+    (function trackRedditReferrer() {
+      if (typeof gtag !== "function") return;
+      const subreddit = getRedditSubreddit();
+      if (!subreddit) return;
+      gtag("event", "reddit_referrer", {
+        subreddit: subreddit,
+        referrer: document.referrer
+      });
+      gtag("set", "user_properties", { reddit_subreddit: subreddit });
+    })();
+  </script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap");
+
+    :root {
+      --ink: #1d1d1f;
+      --muted: #5d616b;
+      --accent: #ff9900;
+      --accent-dark: #e88700;
+      --accent-soft: #fff4e6;
+      --teal: #0f6b6a;
+      --card: #ffffff;
+      --surface: #fff7f2;
+      --outline: rgba(255, 153, 0, 0.18);
+      --shadow: 0 22px 50px rgba(36, 24, 18, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      padding: 28px 16px;
+      text-align: center;
+      background: radial-gradient(1200px 600px at 10% -10%, #fff4e6 0%, transparent 60%),
+        radial-gradient(900px 700px at 110% 10%, #d5f1ef 0%, transparent 65%),
+        linear-gradient(130deg, #fff4eb 0%, #f8fbff 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      filter: blur(10px);
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    body::before {
+      top: -130px;
+      left: -90px;
+      background: #ffd699;
+    }
+
+    body::after {
+      bottom: -140px;
+      right: -120px;
+      background: #ccebe8;
+    }
+    
+    .container {
+      max-width: 520px;
+      width: 100%;
+      background: var(--card);
+      padding: 36px 30px 38px;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 153, 0, 0.12);
+      position: relative;
+      z-index: 1;
+      text-align: left;
+    }
+
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .amazon-logo {
+      font-family: "Bricolage Grotesque", "DM Sans", sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.5px;
+    }
+
+    .amazon-logo span {
+      color: var(--accent);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      padding: 7px 12px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      border: 1px solid var(--outline);
+      margin-bottom: 16px;
+      font-weight: 600;
+      width: fit-content;
+    }
+    
+    h2 {
+      font-family: "Bricolage Grotesque", "DM Sans", sans-serif;
+      font-size: 32px;
+      margin-bottom: 12px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+    
+    p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+      padding: 16px;
+      background: rgba(15, 107, 106, 0.04);
+      border-radius: 12px;
+      border: 1px solid rgba(15, 107, 106, 0.12);
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--ink);
+    }
+
+    .benefit-item svg {
+      flex-shrink: 0;
+    }
+    
+    .btn {
+      font-size: 18px;
+      padding: 18px 32px;
+      width: 100%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: white;
+      border: none;
+      border-radius: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 8px 20px rgba(255, 153, 0, 0.3);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(255, 153, 0, 0.35);
+    }
+    
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+      box-shadow: 0 4px 12px rgba(255, 153, 0, 0.2);
+      transform: none;
+    }
+
+    .trust-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(93, 97, 107, 0.12);
+      font-size: 13px;
+      color: var(--muted);
+      justify-content: center;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .tip {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 153, 0, 0.12);
+      border-radius: 12px;
+      padding: 12px 14px;
+      text-align: center;
+    }
+
+    .error-state {
+      display: none;
+      background: #fff3f3;
+      border: 1px solid #ffcccb;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 16px;
+      color: #d32f2f;
+      font-size: 14px;
+    }
+
+    .error-state.visible {
+      display: block;
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        padding: 32px 24px 34px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .btn {
+        padding: 20px 32px;
+        font-size: 17px;
+      }
+
+      .benefits {
+        padding: 14px;
+      }
+
+      .trust-badges {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="amazon-logo">
+        <span>amazon</span>
+      </div>
+    </div>
+    
+    <div class="badge">
+      <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M17 10h-1V8a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2Zm-7-2a2 2 0 1 1 4 0v2h-4V8Z" fill="currentColor"></path>
+      </svg>
+      Secure redirect
+    </div>
+
+    <div class="error-state" id="errorState">
+      ⚠️ This link doesn't go to Amazon. Redirecting to Amazon home.
+    </div>
+
+    <h2 id="title">Check Price on Amazon</h2>
+    <p id="message">Compare prices, read reviews, and check Prime delivery options.</p>
+
+    <div class="benefits">
+      <div class="benefit-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" stroke="#0f6b6a" stroke-width="2"></circle>
+          <path d="M8 12l3 3 5-6" stroke="#0f6b6a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span>See current price and availability</span>
+      </div>
+      <div class="benefit-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" stroke="#0f6b6a" stroke-width="2"></circle>
+          <path d="M8 12l3 3 5-6" stroke="#0f6b6a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span>Read verified customer reviews</span>
+      </div>
+      <div class="benefit-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" stroke="#0f6b6a" stroke-width="2"></circle>
+          <path d="M8 12l3 3 5-6" stroke="#0f6b6a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span>Check Prime shipping options</span>
+      </div>
+    </div>
+
+    <button class="btn" id="btnBrowser">
+      <span>View on Amazon</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </button>
+
+    <div class="trust-badges">
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span>Secure connection</span>
+      </div>
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2"></path>
+          <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"></circle>
+          <line x1="1" y1="1" x2="23" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+        </svg>
+        <span>No tracking</span>
+      </div>
+      <div class="trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <span>Amazon partner</span>
+      </div>
+    </div>
+
+    <div class="tip" id="tip">Opening in your browser for the best experience</div>
+  </div>
+
+  <noscript>
+    <div style="color:#fff; text-align:center; margin-top:20px; background: rgba(0,0,0,0.8); padding: 20px; border-radius: 12px;">
+      <p style="margin-bottom: 10px;">JavaScript is required for geo-detection.</p>
+      <a href="https://www.amazon.com/" style="color:#ff9900; text-decoration:underline; font-weight: 600;">Open Amazon</a>
+    </div>
+  </noscript>
+
+<script>
+  const AFFILIATE_TAG = "rdt0fb-20";
+
+  // Prendi query da URL
+  const params = new URLSearchParams(location.search);
+  const searchQuery = params.get("search_keywords");
+
+  // Costruisci link Amazon
+  let target = "https://www.amazon.com/?tag=" + AFFILIATE_TAG;
+  if (searchQuery) {
+    const url = new URL("https://www.amazon.com/s");
+    url.searchParams.set("k", searchQuery);
+    url.searchParams.set("tag", AFFILIATE_TAG);
+    target = url.toString();
+  }
+
+  // Pulsante e messaggi
+  const btnBrowser = document.getElementById("btnBrowser");
+  const title = document.getElementById("title");
+  const message = document.getElementById("message");
+
+  btnBrowser.disabled = false;
+
+  btnBrowser.addEventListener("click", function(e) {
+    e.preventDefault();
+    title.textContent = "Opening Amazon...";
+    message.textContent = "Redirecting to Amazon...";
+    window.location.href = target;
+  });
+</script>
+
+</html>
