@@ -2,33 +2,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
+  <meta name="referrer" content="no-referrer">
   <title>Check on Amazon</title>
-  <!-- Google tag (gtag.js) -->
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-Z9XWBVX34H"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
 
-    gtag('config', 'G-Z9XWBVX34H');
-
-    function getRedditSubreddit() {
-      const ref = document.referrer || "";
-      const match = ref.match(/https?:\/\/(www\.|old\.)?reddit\.com\/r\/([^\/?#]+)/i);
-      return match ? match[2].toLowerCase() : null;
-    }
-
-    (function trackRedditReferrer() {
-      if (typeof gtag !== "function") return;
-      const subreddit = getRedditSubreddit();
-      if (!subreddit) return;
-      gtag("event", "reddit_referrer", {
-        subreddit: subreddit,
-        referrer: document.referrer
-      });
-      gtag("set", "user_properties", { reddit_subreddit: subreddit });
-    })();
-  </script>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap");
 
@@ -286,7 +262,7 @@
   <div class="container">
     <div class="header">
       <div class="amazon-logo">
-        <span>amazon</span>
+        <span>Amazon</span>
       </div>
     </div>
     
